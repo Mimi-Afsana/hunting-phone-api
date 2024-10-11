@@ -12,18 +12,29 @@
 
 </head>
 
-<body>
+<body class="bg-slate-100 px-6">
     <header>
         <h2 class="text-6xl">Hunting Phone</h2>
-
     </header>
 
-    <main>
-        <section class="mx-4">
-            <div id="phone-container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <main class="mt-8 container mx-auto">
+        <section class="flex justify-center gap-2">
+            <input id="search-input" type="text" placeholder="Search here"
+                class="input input-bordered input-primary w-full max-w-xs" />
+            <button onclick="handleSearch()" class="btn btn-success mb-10">Search</button>
+        </section>
 
+        <section id="loading-spinner" class="text-center hidden">
+            <span class="loading loading-spinner loading-lg"></span>
+        </section>
+
+        <section class="">
+            <div id="phone-container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 justify-evenly">
             </div>
         </section>
+        <div id="show-all" class="hidden mt-4 text-center">
+            <button onclick="handleShowAll()" class="btn btn-success ">ShowAll</button>
+        </div>
     </main>
 
     <footer>
