@@ -46,7 +46,7 @@ const dispalyPhones = (phones, isShowAll) => {
                       <h2 class="card-title">${phone.phone_name}</h2>
                       <p>If a dog chews shoes whose shoes does he choose?</p>
                       <div class="card-actions">
-                        <button class="btn btn-primary">Buy Now</button>
+                        <button onclick="showDetails('${phone.slug}'); show_details_modal.showModal()";   class="btn btn-primary">Show Details</button>
                       </div>
                     </div>
         `;
@@ -97,4 +97,33 @@ const handleShowAll = () => {
   // const showAll = document.getElementById('show-all')
   // console.log(showAll, 'clicked')
   handleSearch(true)
+}
+
+
+// show details each phone
+const showDetails = async (id) => {
+  // console.log(id)
+  const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
+  const eachPhoneDetails = await res.json();
+  const data = eachPhoneDetails.data
+  console.log(data)
+
+  const each = document.getElementById("show_details_modal")
+  each.textContent = ''
+  const eachdiv = document.createElement('div')
+  eachdiv.innerHTML = `
+                    
+                    <div class="modal-box">
+                        <h3 class="text-lg font-bold">${data.name}</h3>
+                        <p class="py-4">Press ESC key or click the button below to close</p>
+                        <div class="modal-action">
+                            <form method="dialog">
+                                <!-- if there is a button in form, it will close the modal -->
+                                <button class="btn">Close</button>
+                            </form>
+                        </div>
+                    </div>
+               
+  `
+  each.appendChild(eachdiv)
 }
