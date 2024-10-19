@@ -111,15 +111,18 @@ const showDetails = async (id) => {
   const each = document.getElementById("show_details_modal")
   each.textContent = ''
   const eachdiv = document.createElement('div')
+
   eachdiv.innerHTML = `
                     
                     <div class="modal-box">
-                        <h3 class="text-lg font-bold">${data.name}</h3>
-                        <p class="py-4">Press ESC key or click the button below to close</p>
-                        <div class="modal-action">
+                      <div class= "flex justify-center mb-4"><img  src="${data.image}" alt="" /></div>                         
+                          <p><span class="font-bold">Storage: </span>${data?.mainFeatures?.storage}</p>
+                          <p><span class="font-bold">GPS: </span>${data.others?.GPS || 'No GPS available'}</p>
+                         <p><span class="font-bold">GPS: </span>${data.others?.GPS ? data.others.GPS : 'No GPS available in this device'}</p>
+                         <div class="modal-action">
                             <form method="dialog">
                                 <!-- if there is a button in form, it will close the modal -->
-                                <button class="btn">Close</button>
+                                <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Close</button>
                             </form>
                         </div>
                     </div>

@@ -12,16 +12,16 @@
 
 </head>
 
-<body class="bg-slate-100 px-6">
+<body class="min-h-screen bg-slate-100 px-6">
     <header>
         <h2 class="text-6xl">Hunting Phone</h2>
     </header>
 
     <main class="mt-8 container mx-auto">
-        <section class="flex justify-center gap-2">
+        <section class="flex justify-center items-center gap-2 bg-gray-200 p-4 rounded">
             <input id="search-input" type="text" placeholder="Search here"
                 class="input input-bordered input-primary w-full max-w-xs" />
-            <button onclick="handleSearch()" class="btn btn-success mb-10">Search</button>
+            <button onclick="handleSearch()" class=" btn btn-success self-stretch">Search</button>
         </section>
 
         <section id="loading-spinner" class="text-center hidden">
@@ -38,12 +38,12 @@
 
         <!-- show phone details -->
 
-        <section id="show-details-each-phone">
+        <section id="show-details-each-phone ">
             <!-- Open the modal using ID.showModal() method -->
-                <dialog id="show_details_modal" class="modal">
- 
-                </dialog>
-            
+            <dialog id="show_details_modal" class="modal ">
+
+            </dialog>
+
         </section>
     </main>
 
