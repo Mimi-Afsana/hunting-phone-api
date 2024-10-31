@@ -43,10 +43,10 @@ const dispalyPhones = (phones, isShowAll) => {
                         class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
-                      <h2 class="card-title">${phone.phone_name}</h2>
-                      <p>If a dog chews shoes whose shoes does he choose?</p>
+                      <h2 class="card-title"> <span class="text-primary">Phone Name:</span>  ${phone.phone_name}</h2>
+                      <h2 class="card-title"><span class="text-primary">Brand:</span> ${phone.brand}</h2>
                       <div class="card-actions">
-                        <button onclick="showDetails('${phone.slug}'); show_details_modal.showModal()";   class="btn btn-primary">Show Details</button>
+                        <button onclick="showDetails('${phone.slug}'); show_details_modal.showModal()";   class="btn btn-success">Show Details</button>
                       </div>
                     </div>
         `;
@@ -115,10 +115,12 @@ const showDetails = async (id) => {
   eachdiv.innerHTML = `
                     
                     <div class="modal-box">
-                      <div class= "flex justify-center mb-4"><img  src="${data.image}" alt="" /></div>                         
-                          <p><span class="font-bold">Storage: </span>${data?.mainFeatures?.storage}</p>
-                          <p><span class="font-bold">GPS: </span>${data.others?.GPS || 'No GPS available'}</p>
-                         <p><span class="font-bold">GPS: </span>${data.others?.GPS ? data.others.GPS : 'No GPS available in this device'}</p>
+                      <div class= "flex justify-center mb-4"><img  src="${data?.image}" alt="" /></div> 
+                      <p class="font-bold">${data.name ? data.name : 'No Name Found'}</p>
+                          <p><span class="text-primary font-bold">Release Date:</span>  ${data.releaseDate ? data.releaseDate : 'No Release Date Found'}</p>
+                          <p> <span class="text-primary font-bold">Storage:</span> ${data.mainFeatures ? data.mainFeatures.storage : 'No Storage Information '}</p>
+                          <p><span class="text-primary font-bold">Others:</span>  ${data.others ? data.others.Bluetooth : 'No Bluetooth Information'}</p>
+                          <p><span class="text-primary font-bold">Sensor:</span>  ${data.mainFeatures.sensors ? data.mainFeatures.sensors[0] : 'no sensor'}</p>
                          <div class="modal-action">
                             <form method="dialog">
                                 <!-- if there is a button in form, it will close the modal -->
